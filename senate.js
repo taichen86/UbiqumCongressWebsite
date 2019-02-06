@@ -39,8 +39,11 @@ tx = document.createTextNode('Percentage');
 th.append(tx);
 tr.append(th);
 
-table.append(tr);
+var thead = document.createElement('thead');
+thead.append(tr);
+table.append(thead);
 
+var tbody = document.createElement('tbody');
 members.forEach( member => {
 
     console.log( member );
@@ -76,8 +79,10 @@ members.forEach( member => {
     td.append(tx);
     tr.append(td);
     
-    table.append(tr);
+    tbody.append(tr);
 
     
 });
+
+table.append(tbody);
 
