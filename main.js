@@ -1,4 +1,3 @@
-//document.getElementById("senate-data").innerHTML = JSON.stringify(data,null,2);
 
 console.log( data.results[0].members[0] );
 var numOfMembers = data.results[0].members.length;
@@ -6,16 +5,11 @@ console.log( 'number of members: ' + numOfMembers );
 
 var members = data.results[0].members;
 
-/*
-var table = document.createElement('table');
-document.getElementById('senate-data').append(table);
-*/
-
-var table = document.getElementById('senate-data-table');
+var table = document.getElementById('members-table');
 
 let tr = document.createElement('tr');
 let th = document.createElement('th');
-let tx = document.createTextNode('Senator');
+let tx = document.createTextNode('Name');
 th.append(tx);
 tr.append(th);
 
