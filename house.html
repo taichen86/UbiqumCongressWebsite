@@ -9,7 +9,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
     
-    <body>
+    <body onload="initialize()">
 
         <div class="row">
             <div class="col-md-1"></div>
@@ -58,6 +58,23 @@
                 <p>Each U.S. state is represented in the House in proportion to its population as measured in the census, but every state is entitled to at least one representative. </p>
             </div>
         <div class="col-md-5"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-5">
+                Filter by Party: 
+                <input name="partyfilter" type="checkbox" value="R" onclick="filterByParty()" checked> republican
+                <input name="partyfilter" type="checkbox" value="D" onclick="filterByParty()" checked> democrat
+                <input name="partyfilter" type="checkbox" value="I" onclick="filterByParty()" checked> independent
+            </div>
+            <div class="col-md-5">
+                Filter by State:
+                <select name="statefilter"  onchange="filterByState()">
+                    <option>ALL</option>
+                </select>
+            </div>
+            <div class="col-md-1"></div>
         </div>
 
         <div class="row">

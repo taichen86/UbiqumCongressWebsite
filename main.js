@@ -5,7 +5,7 @@ var stateFilter = document.getElementsByName( 'statefilter' )[0];
 var allMembers = data.results[0].members;
 var partySelected = ['R', 'D', 'I'];
 var allStates = [];
-var stateSelected = []; // not needed?
+var stateSelected = []; 
 
 function initialize()
 {
@@ -32,42 +32,38 @@ function filterByParty()
 {
     var nodes = document.querySelectorAll( ['input[name=partyfilter]:checked'] );
     partySelected = Array.from( nodes ).map( node => node.value );
-//    console.log( 'parties selected: ' + partiesSelected );
-    partySelected.forEach( party => console.log( party ) );
-    membersTable.innerHTML = '';
-    insertTableOfMembers( partySelected, stateSelected );
+    //    console.log( 'parties selected: ' + partiesSelected );
+//    partySelected.forEach( party => console.log( party ) );
+    insertTableOfMembers( );
 }
 
 function filterByState()
 {
-    console.log( 'filter by state: ' + stateFilter.value );
-    membersTable.innerHTML = '';
- //   stateSelected = stateFilter.value
+    console.log( `filter by state: ${stateFilter.value}` );
     stateSelected = ( stateFilter.value == 'ALL' ) ? allStates : stateFilter.value;
-    insertTableOfMembers( partySelected, stateSelected );
+    insertTableOfMembers( );
 }
 
 
-function insertTableOfMembers( parties = partySelected, states = allStates ) // TODO: refactor!!!
+function insertTableOfMembers( )
 {
     console.log( '==== ' + partySelected + ' || ' + stateSelected );
-    // filter party
-//    console.log( partySelected );
-    let members = allMembers.filter( member => partySelected.indexOf( member.party ) > -1 );
 
+    // filter party
+    let members = allMembers.filter( member => partySelected.indexOf( member.party ) > -1 );
     // filter state
-//    console.log( states );
-    members = members.filter( member => states.indexOf( member.state ) > -1 );
-//    console.log( 'number of members: ' + members.length );
+    members = members.filter( member => stateSelected.indexOf( member.state ) > -1 );
 
     console.log( 'number of members: ' + members.length );
 
 
+    membersTable.innerHTML = '';
+
     let tr = document.createElement('tr');
     let th = document.createElement('th');
-    tr.append(th);
     th.append(document.createTextNode('Name'));
-
+    tr.append(th);
+   
     th = document.createElement('th');
     th.append(document.createTextNode('Party'));
     tr.append(th);
@@ -75,6 +71,7 @@ function insertTableOfMembers( parties = partySelected, states = allStates ) // 
     th = document.createElement('th');
     th.append(document.createTextNode('State'));
     tr.append(th);
+    
     
     th = document.createElement('th');
     th.append(document.createTextNode('Seniority'));
