@@ -38,7 +38,7 @@ function filterByParty()
     console.log( 'parties selected: ' + partiesSelected );
     partySelected.forEach( party => console.log( party ) );
     */
-    membersToShow = membersToShow.filter( member => partySelected.indexOf( member.party ) > -1 );
+    membersToShow = allMembers.filter( member => partySelected.indexOf( member.party ) > -1 );
     insertTableOfMembers( );
 }
 
