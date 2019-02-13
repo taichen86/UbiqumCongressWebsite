@@ -75,7 +75,7 @@ function getHighestLowest( members, key )
 
 function createHiLowTable( tableID, members, key )
 {
-    console.log( 'do table ' + tableID );
+    
     const table = document.getElementById( tableID );
     tbody = table.getElementsByTagName( "tbody" )[0];
     
@@ -92,7 +92,6 @@ function createHiLowTable( tableID, members, key )
     //    td.append( document.createTextNode( member.votes_with_party_pct ) );
         td.append( document.createTextNode( member[key] ) );
         tr.append( td );
-        
         tbody.append( tr );
     } );
 }
@@ -105,8 +104,6 @@ function populateCommonTable( )
         table.rows[i+1].cells[1].append( document.createTextNode( statisticsObj[i].members.length ) );
         table.rows[i+1].cells[2].append( document.createTextNode( statisticsObj[i].avgPartyVotes ) );
     }
-
-    
 
 }
 

@@ -5,7 +5,7 @@ var stateFilter = document.getElementsByName( 'statefilter' )[0];
 const allMembers = data.results[0].members;
 var membersToShow = [];
 var allStates = [];
-var partySelected = ['R', 'D', 'I'];
+var partiesSelected = ['R', 'D', 'I'];
 var stateSelected = []; 
 
 function initialize()
@@ -33,12 +33,7 @@ function initialize()
 function filterByParty()
 {
     var nodes = document.querySelectorAll( ['input[name=partyfilter]:checked'] );
-    partySelected = Array.from( nodes ).map( node => node.value );
-    /*
-    console.log( 'parties selected: ' + partiesSelected );
-    partySelected.forEach( party => console.log( party ) );
-    */
-    membersToShow = allMembers.filter( member => partySelected.indexOf( member.party ) > -1 );
+    partiesSelected = Array.from( nodes ).map( node => node.value );
     insertTableOfMembers( );
 }
 
@@ -46,15 +41,17 @@ function filterByState()
 {
     console.log( `filter by state: ${stateFilter.value}` );
     stateSelected = ( stateFilter.value == 'ALL' ) ? allStates : stateFilter.value;
-    membersToShow = membersToShow.filter( member => stateSelected.indexOf( member.state ) > -1 );
     insertTableOfMembers( );
 }
 
 
 function insertTableOfMembers( )
 {
-    console.log( '==== ' + partySelected + ' || ' + stateSelected );
+    console.log( '==== ' + partiesSelected + ' || ' + stateSelected );
     console.log( 'number of members: ' + membersToShow.length );
+
+    membersToShow = allMembers.filter( member => partiesSelected.indexOf( member.party ) > -1 );
+    membersToShow = membersToShow.filter( member => stateSelected.indexOf( member.state ) > -1 );
 
 
     membersTable.innerHTML = '';
