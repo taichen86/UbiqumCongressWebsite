@@ -23,37 +23,45 @@
                     </div>
                 </div>
 
-            <nav class="navbar navbar-default">
-                    <div class="container-fluid">
-                        <div class="navbar-header">
-                            <a class="navbar-brand" href="#">TGIF</a>
-                        </div>
-                        <ul class="nav navbar-nav">
-                            <li><a href="index.html">Home</a></li>
-                            <li >
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Congress 113</a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="senate.html">Senate</a></li>
-                                    <li><a href="house.html">House</a></li>
-                                </ul>
-                            </li>
-                            <li >
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Attendance</a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="attendance-senate.html">Senate</a></li>
-                                    <li><a href="attendance-house.html">House</a></li>
-                                </ul>
-                            </li>
-                            <li >
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Loyalty</a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="loyalty-senate.html">Senate</a></li>
-                                    <li><a href="loyalty-house.html">House</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>      
+        <!-- nav bar -->
+        <div class="row">
+            <div class="col-md-1"></div>
+                <div class="col-md-10">
+                        <nav class="navbar navbar-default">
+                                <div class="container-fluid">
+                                    <div class="navbar-header">
+                                        <a class="navbar-brand" href="#">TGIF</a>
+                                    </div>
+                                    <ul class="nav navbar-nav">
+                                        <li><a href="index.html">Home</a></li>
+                                        <li >
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Congress 113</a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="senate.html">Senate</a></li>
+                                                <li><a href="house.html">House</a></li>
+                                            </ul>
+                                        </li>
+                                        <li >
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Attendance</a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="attendance-senate.html">Senate</a></li>
+                                                <li><a href="attendance-house.html">House</a></li>
+                                            </ul>
+                                        </li>
+                                        <li >
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Loyalty</a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="loyalty-senate.html">Senate</a></li>
+                                                <li><a href="loyalty-house.html">House</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    
+                                </div>
+                            </nav> 
+                </div>
+            <div class="col-md-1"></div>
+            </div>   
   
 
         <header>            
@@ -64,46 +72,50 @@
 
         
         <!--Table container-->
-        <div>
-            <h2>Party Loyalty</h2>
-            <p>Those who consider themselves to be strong partisans, strong Democrats and strong Republicans respectively, tend to be the most faithful in voting for their party's nominee for office and legislation that backs their party's agenda. </p>
-    	    
-            <h2>Senate at a glance</h2>
-            <table id="summaryTable">
-                <thead>
-                    <tr>
-                        <th>Party</th>
-                        <th>Number of Reps</th>
-                        <th>% Voted with Prty</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Republican</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
-                    <tr>
-                        <td>Democrat</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
-                    <tr>
-                        <td>Independent</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-6">
+                <h2>Party Loyalty</h2>
+                <p>Those who consider themselves to be strong partisans, strong Democrats and strong Republicans respectively, tend to be the most faithful in voting for their party's nominee for office and legislation that backs their party's agenda. </p>        
+            </div>
+            <div class="col-md-5"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <h2>Senate at a glance</h2>
+                <table id="summaryTable" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Party</th>
+                            <th>Number of Reps</th>
+                            <th>% Voted with Prty</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Republican</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Democrat</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Independent</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
 
             <h2>Least Loyal (Bottom 10% of Party)</h2>
-            <table id="least" class='votes_with_party_pct'>
+            <table id="least" class='votes_with_party_pct table table-striped'>
                 <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Number Party Votes</th>
-                        <th>% Party Votes</th>
-                    </tr>
+                    <tr><th>Name</th><th>Number Party Votes</th><th>% Party Votes</th></tr>
                 </thead>
                 <tbody>
         
@@ -111,20 +123,18 @@
             </table>
 
             <h2>Most Loyal (Top 10% of Party)</h2>
-            <table id="most" class='votes_with_party_pct'>
+            <table id="most" class='votes_with_party_pct table table-striped'>
                 <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Number Party Votes</th>
-                        <th>% Party Votes</th>
-                    </tr>
+                    <tr><th>Name</th><th>Number Party Votes</th><th>% Party Votes</th></tr>
                 </thead>
                 <tbody>
-                 
+                    
                 </tbody>
             </table>
 
-        </div>    
+        <div class="col-md-1"></div>
+        </div>
+
         <script src="pro-congress-113-house.js"></script>
         <script src="statistics.js"></script> 
 </body>
