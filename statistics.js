@@ -1,6 +1,7 @@
 const allMembers = data.results[0].members;
 let allMembersByLoyalty = [];
 let allMembersByAttendance = [];
+let membersOrdered = []; // for both
 
 var statisticsObj = [
     { 
@@ -23,7 +24,9 @@ var statisticsObj = [
     }
 ];
 
-const partyLetters = [ 'R', 'D', 'I'];
+
+let key = 'votes_with_party_pct';
+const partyLetters = [ 'R', 'D', 'I' ];
 function getNumOfMembersInEachParty( )
 { 
     allMembers.forEach( member => {
@@ -31,25 +34,20 @@ function getNumOfMembersInEachParty( )
         statisticsObj[ partyLetters.indexOf( member.party ) ].members.push( member );
     } );
 
-    membersByAttendance = allMembers.slice( 0, allMembers.length );
-    membersByAttendance.sort( (a,b) => a.missed_votes_pct - b.missed_votes_pct );
-
-    membersByLoyalty = allMembers.slice( 0, allMembers.length );
-    membersByLoyalty.sort( (a,b) => a.votes_with_party_pct - b.votes_with_party_pct );
+    membersOrdered = allMembers.slice( 0, allMembers.length );
+    key = document.getElementsByTagName( 'body' )[0].id;
+    membersOrdered.sort( (a,b) => a[key] - b[key] );
 
 }
-
 
 function getAveragePartyVotes( )
 {
     for( var i=0; i<3; i++ )
     {
-        console.log( '-----------------------');
         statisticsObj[i].numOfMembers = statisticsObj[i].members.length;
         let total = statisticsObj[i].members.reduce( (accum, value) => accum + value.votes_with_party_pct, 0 );
         statisticsObj[i].avgPartyVotes = ( total / statisticsObj[i].numOfMembers ).toFixed( 2 );
     }
-
 }
 
 function getHighestLowest( members, key )
@@ -104,13 +102,20 @@ function populateCommonTable( )
         table.rows[i+1].cells[1].append( document.createTextNode( statisticsObj[i].members.length ) );
         table.rows[i+1].cells[2].append( document.createTextNode( statisticsObj[i].avgPartyVotes ) );
     }
+}
 
+function populateHiLowTables( )
+{
+    createHiLowTable( 'least', getHighestLowest( membersOrdered, key ), key );
+    createHiLowTable( 'most', getHighestLowest( membersOrdered.reverse(), key ), key );
+    
 }
 
 
-getNumOfMembersInEachParty( );
-getAveragePartyVotes( );
+getNumOfMembersInEachParty();
+getAveragePartyVotes();
 populateCommonTable();
+populateHiLowTables();
 
 
 

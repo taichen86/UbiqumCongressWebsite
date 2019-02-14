@@ -9,7 +9,7 @@
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     </head>
     
-    <body>
+    <body id='missed_votes_pct'>
             <div class="row">
                     <div class="col-xs-1"></div>
                     <div class="col-xs-3">
@@ -96,7 +96,7 @@
             </table>
 
             <h2>Least Engaged (Bottom 10% Attendance)</h2>
-            <table id='least'>
+            <table id='least' class='missed_votes_pct'>
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -110,7 +110,7 @@
             </table>
 
             <h2>Most Engaged (Top 10% Attendance)</h2>
-            <table id='most'>
+            <table id='most' class='missed_votes_pct'>
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -127,7 +127,6 @@
         
         <script src="pro-congress-113-house.js"></script>
         <script src="statistics.js"></script>  
-        <script src="attendance.js"></script>  
 
 </body>
 </html>

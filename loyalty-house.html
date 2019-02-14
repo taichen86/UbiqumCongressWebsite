@@ -9,7 +9,7 @@
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     </head>
     
-    <body>
+    <body id='votes_with_party_pct'>
             <div class="row">
                     <div class="col-xs-1"></div>
                     <div class="col-xs-3">
@@ -97,7 +97,7 @@
             </table>
 
             <h2>Least Loyal (Bottom 10% of Party)</h2>
-            <table id="least">
+            <table id="least" class='votes_with_party_pct'>
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -111,7 +111,7 @@
             </table>
 
             <h2>Most Loyal (Top 10% of Party)</h2>
-            <table id="most">
+            <table id="most" class='votes_with_party_pct'>
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -127,6 +127,5 @@
         </div>    
         <script src="pro-congress-113-house.js"></script>
         <script src="statistics.js"></script> 
-        <script src="loyalty.js"></script> 
 </body>
 </html>
