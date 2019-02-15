@@ -114,6 +114,9 @@ function getHiLowMemberArrays( )
     allMembers.sort( (a,b) => a[key] - b[key] );
     membersLowest = getHighestLowest( allMembers, key );
     membersHighest = getHighestLowest( allMembers.reverse(), key );
+
+    membersLowest.forEach( member => console.log( member.missed_votes_pct ) );
+    membersHighest.forEach( member => console.log( member.missed_votes_pct ) );
 }
 
 

@@ -70,7 +70,7 @@
         </header>
         <!--Table container-->
      
-
+        <div id="stats-tables">
         <div class="row">
                 <div class="col-md-1"></div>
                 <div class="col-md-6">
@@ -115,6 +115,7 @@
                                 </tbody>
                             </table>
         
+                    <!--
                     <h2>Least Loyal (Bottom 10% of Party)</h2>
                     <table id="least" class='votes_with_party_pct table table-striped'>
                         <thead>
@@ -134,17 +135,39 @@
                             
                         </tbody>
                     </table>
+                    -->
+
+                    <h2>Least Loyal (Bottom 10% of Party)</h2>
+                    <table class='table table-striped'>
+                        <thead>
+                            <tr><th>Name</th><th>Number Party Votes</th><th>% Party Votes</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="member in membersLowest" ><td> {{ member.first_name }} {{ member.last_name }} </td><td> ??? </td><td> {{ member.missed_votes_pct }} </td></tr>
+                        </tbody>
+                    </table>
+        
+                    <h2>Most Loyal (Top 10% of Party)</h2>
+                    <table class='table table-striped'>
+                        <thead>
+                            <tr><th>Name</th><th>Number Party Votes</th><th>% Party Votes</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="member in membersHighest" ><td> {{ member.first_name }} {{ member.last_name }} </td><td> ??? </td><td> {{ member.missed_votes_pct }} </td></tr>
+                        </tbody>
+                    </table>
         
                 <div class="col-md-1"></div>
                 </div>
-
+            </div>
 
         </div> 
 
     
-        
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
         <script src="pro-congress-113-house.js"></script>
         <script src="statistics.js"></script>  
+        <script src="vue-data.js"></script>
 
 </body>
 </html>
