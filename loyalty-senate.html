@@ -74,7 +74,7 @@
 
         
         <!--Table container-->
-        <div>
+        <div id="stats-tables">
 
             <div class="row">
                 <div class="col-md-1"></div>
@@ -115,7 +115,7 @@
                                     </tr>
                                 </tbody>
                             </table>
-        
+                    <!--
                     <h2>Least Loyal (Bottom 10% of Party)</h2>
                     <table id="least" class='votes_with_party_pct table table-striped'>
                         <thead>
@@ -135,13 +135,39 @@
                             
                         </tbody>
                     </table>
+                    -->
+
+                    <h2>Least Loyal (Bottom 10% of Party)</h2>
+                    <table class='votes_with_party_pct table table-striped'>
+                        <thead>
+                            <tr><th>Name</th><th>Number Party Votes</th><th>% Party Votes</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="member in membersLowest" ><td> {{ member.first_name }} {{ member.last_name }} </td><td> ??? </td><td> {{ member.votes_with_party_pct }} </td></tr>
+                        </tbody>
+                    </table>
+        
+                    <h2>Most Loyal (Top 10% of Party)</h2>
+                    <table class='votes_with_party_pct table table-striped'>
+                        <thead>
+                            <tr><th>Name</th><th>Number Party Votes</th><th>% Party Votes</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="member in membersHighest" ><td> {{ member.first_name }} {{ member.last_name }} </td><td> ??? </td><td> {{ member.votes_with_party_pct }} </td></tr>
+                        </tbody>
+                    </table>
         
                 <div class="col-md-1"></div>
+
+
                 </div>
 
 
         </div> 
+        <!-- development version, includes helpful console warnings -->
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
         <script src="pro-congress-113-senate.js"></script>
         <script src="statistics.js"></script> 
+        <script src="vue-data.js"></script>
 </body>
 </html>

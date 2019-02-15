@@ -1,7 +1,7 @@
 const allMembers = data.results[0].members;
-let allMembersByLoyalty = [];
-let allMembersByAttendance = [];
 let membersOrdered = []; // for both
+let membersLowest = [];
+let membersHighest = [];
 
 var statisticsObj = [
     { 
@@ -34,9 +34,6 @@ function getNumOfMembersInEachParty( )
         statisticsObj[ partyLetters.indexOf( member.party ) ].members.push( member );
     } );
 
-    membersOrdered = allMembers.slice( 0, allMembers.length );
-    key = document.getElementsByTagName( 'body' )[0].id;
-    membersOrdered.sort( (a,b) => a[key] - b[key] );
 
 }
 
@@ -50,18 +47,17 @@ function getAveragePartyVotes( )
     }
 }
 
+
 function getHighestLowest( members, key )
 {
     let result = [];
     let limit = Math.round( members.length/10 );
 
-    result.push( members[0] ); // TODO: make this better!
+    result.push( members[0] );
     for( var i=1; i<members.length; i++ )
     {
-    //    if( members[i].votes_with_party_pct == members[i-1].votes_with_party_pct )
         if( members[i][key] == members[i-1][key] )
         {
-        //    console.log( 'DUPLICATE: ' + members[i].votes_with_party_pct )
             result.push( members[i] );
             continue;
         }
@@ -70,6 +66,7 @@ function getHighestLowest( members, key )
     }
     return result;
 }
+
 
 function createHiLowTable( tableID, members, key )
 {
@@ -111,11 +108,21 @@ function populateHiLowTables( )
     
 }
 
+function getHiLowMemberArrays( )
+{
+    key = document.getElementsByTagName( 'body' )[0].id;
+    allMembers.sort( (a,b) => a[key] - b[key] );
+    membersLowest = getHighestLowest( allMembers, key );
+    membersHighest = getHighestLowest( allMembers.reverse(), key );
+}
+
 
 getNumOfMembersInEachParty();
 getAveragePartyVotes();
 populateCommonTable();
-populateHiLowTables();
+//populateHiLowTables();
+getHiLowMemberArrays();
+
 
 
 
