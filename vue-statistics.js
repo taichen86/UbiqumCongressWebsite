@@ -1,7 +1,8 @@
-new Vue({
-    el: '#stats-tables',
+var stats = new Vue({
+    el: '#vue-tables',
     data: {
       membersHighest: membersHighest,
       membersLowest: membersLowest
+      
     }
   })

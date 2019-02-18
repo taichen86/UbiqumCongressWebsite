@@ -48,11 +48,15 @@ function filterByState()
 function insertTableOfMembers( )
 {
     console.log( '==== ' + partiesSelected + ' || ' + stateSelected );
-    console.log( 'number of members: ' + membersToShow.length );
 
     membersToShow = allMembers.filter( member => partiesSelected.indexOf( member.party ) > -1 );
     membersToShow = membersToShow.filter( member => stateSelected.indexOf( member.state ) > -1 );
+    console.log( 'number of members: ' + membersToShow.length );
 
+    console.log( 'update' );
+    membersToShow.forEach( member => console.log( member ) );
+
+    /*
 
     membersTable.innerHTML = '';
 
@@ -120,6 +124,8 @@ function insertTableOfMembers( )
     });
     
     membersTable.append(tbody);
+    */
+    
     
     
 }

@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
     
     <body onload="initialize()">
@@ -91,10 +93,17 @@
             <div class="col-md-1"></div>
         </div>
 
-        <div class="row">
+        <div class="row" id="vue-tables">
                 <div class="col-md-1"></div>
                 <div class="col-md-10">
-                    <table id="members-table" class="table"></table>
+                    <table id="members-table" class="table">
+                        <tr v-for="member in congressMembers">
+                            <td> {{ member.first_name }} {{ member.middle_name }} {{ member.last_name }} </td>
+                            <td> {{ member.party}} </td>
+                            <td> {{ member.state }} </td>
+                            <td> {{ member.seniority }} </td>
+                            <td> {{ member.votes_with_party_pct + '%' }} </td></tr>
+                    </table>
                 </div>
             <div class="col-md-1"></div>
         </div>
@@ -112,6 +121,7 @@
     
         <script src="pro-congress-113-senate.js"></script>
         <script src="main.js"></script>  
+        <script src="vue-congress.js"></script>
     </body>
     
 </html>
