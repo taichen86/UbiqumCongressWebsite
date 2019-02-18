@@ -53,11 +53,11 @@ function insertTableOfMembers( )
     membersToShow = membersToShow.filter( member => stateSelected.indexOf( member.state ) > -1 );
     console.log( 'number of members: ' + membersToShow.length );
 
-    console.log( 'update' );
-    membersToShow.forEach( member => console.log( member ) );
+    stats.congressMembers = membersToShow;
 
     /*
-
+    
+    membersToShow.forEach( member => console.log( member ) );
     membersTable.innerHTML = '';
 
     let tr = document.createElement('tr');
