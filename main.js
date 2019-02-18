@@ -2,7 +2,7 @@
 var membersTable = document.getElementById( 'members-table' );
 var stateFilter = document.getElementsByName( 'statefilter' )[0];
 
-const allMembers = data.results[0].members;
+let allMembers = []; //data.results[0].members;
 var membersToShow = [];
 var allStates = [];
 var partiesSelected = ['R', 'D', 'I'];
@@ -10,6 +10,7 @@ var stateSelected = [];
 
 function initialize()
 {
+    console.log( 'initialize....' );
     // initialize states array
     allMembers.forEach( member =>
         {
@@ -56,7 +57,7 @@ function insertTableOfMembers( )
     stats.congressMembers = membersToShow;
 
     /*
-    
+
     membersToShow.forEach( member => console.log( member ) );
     membersTable.innerHTML = '';
 
@@ -129,4 +130,3 @@ function insertTableOfMembers( )
     
     
 }
-initialize();
