@@ -7,7 +7,8 @@
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    </head>
+            <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        </head>
     
     <body id='missed_votes_pct'>
             <div class="row">
@@ -137,23 +138,23 @@
                     </table>
                     -->
 
-                    <h2>Least Loyal (Bottom 10% of Party)</h2>
+                    <h2>Least Engaged (Bottom 10% of Party)</h2>
                     <table class='table table-striped'>
                         <thead>
-                            <tr><th>Name</th><th>Number Party Votes</th><th>% Party Votes</th></tr>
+                            <tr><th>Name</th><th>Missed Votes</th><th>% Missed Votes</th></tr>
                         </thead>
                         <tbody>
-                            <tr v-for="member in membersLowest" ><td> {{ member.first_name }} {{ member.last_name }} </td><td> ??? </td><td> {{ member.missed_votes_pct }} </td></tr>
+                            <tr v-for="member in membersHighest" ><td> {{ member.first_name }} {{ member.last_name }} </td><td> {{ member.missed_votes }} </td><td> {{ member.missed_votes_pct }} </td></tr>
                         </tbody>
                     </table>
         
-                    <h2>Most Loyal (Top 10% of Party)</h2>
+                    <h2>Most Engaged (Top 10% of Party)</h2>
                     <table class='table table-striped'>
                         <thead>
-                            <tr><th>Name</th><th>Number Party Votes</th><th>% Party Votes</th></tr>
+                            <tr><th>Name</th><th>Missed Votes</th><th>% Missed Votes</th></tr>
                         </thead>
                         <tbody>
-                            <tr v-for="member in membersHighest" ><td> {{ member.first_name }} {{ member.last_name }} </td><td> ??? </td><td> {{ member.missed_votes_pct }} </td></tr>
+                            <tr v-for="member in membersLowest" ><td> {{ member.first_name }} {{ member.last_name }} </td><td> {{ member.missed_votes }} </td><td> {{ member.missed_votes_pct }} </td></tr>
                         </tbody>
                     </table>
         
@@ -164,7 +165,7 @@
         </div> 
 
     
-        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
         <script src="pro-congress-113-house.js"></script>
         <script src="statistics.js"></script>  
         <script src="vue-data.js"></script>

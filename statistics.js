@@ -30,7 +30,7 @@ const partyLetters = [ 'R', 'D', 'I' ];
 function getNumOfMembersInEachParty( )
 { 
     allMembers.forEach( member => {
-    //    console.log( 'put member in party ... ' + member.party)
+        console.log( member );
         statisticsObj[ partyLetters.indexOf( member.party ) ].members.push( member );
     } );
 
@@ -115,8 +115,10 @@ function getHiLowMemberArrays( )
     membersLowest = getHighestLowest( allMembers, key );
     membersHighest = getHighestLowest( allMembers.reverse(), key );
 
+    /*
     membersLowest.forEach( member => console.log( member.missed_votes_pct ) );
     membersHighest.forEach( member => console.log( member.missed_votes_pct ) );
+    */
 }
 
 

@@ -7,7 +7,9 @@
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    </head>
+           <!-- development version, includes helpful console warnings -->
+           <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        </head>
     
     <body id='votes_with_party_pct'>
             <div class="row">
@@ -143,7 +145,7 @@
                             <tr><th>Name</th><th>Number Party Votes</th><th>% Party Votes</th></tr>
                         </thead>
                         <tbody>
-                            <tr v-for="member in membersLowest" ><td> {{ member.first_name }} {{ member.last_name }} </td><td> ??? </td><td> {{ member.votes_with_party_pct }} </td></tr>
+                            <tr v-for="member in membersLowest" ><td> {{ member.first_name }} {{ member.last_name }} </td><td> {{ member.total_votes }} </td><td> {{ member.votes_with_party_pct }} </td></tr>
                         </tbody>
                     </table>
         
@@ -153,7 +155,7 @@
                             <tr><th>Name</th><th>Number Party Votes</th><th>% Party Votes</th></tr>
                         </thead>
                         <tbody>
-                            <tr v-for="member in membersHighest" ><td> {{ member.first_name }} {{ member.last_name }} </td><td> ??? </td><td> {{ member.votes_with_party_pct }} </td></tr>
+                            <tr v-for="member in membersHighest" ><td> {{ member.first_name }} {{ member.last_name }} </td><td> {{ member.total_votes }} </td><td> {{ member.votes_with_party_pct }} </td></tr>
                         </tbody>
                     </table>
         
@@ -164,8 +166,7 @@
 
 
         </div> 
-        <!-- development version, includes helpful console warnings -->
-        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
         <script src="pro-congress-113-senate.js"></script>
         <script src="statistics.js"></script> 
         <script src="vue-data.js"></script>
