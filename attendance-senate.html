@@ -113,7 +113,10 @@
                             <tr><th>Name</th><th>Missed Votes</th><th>% Missed Votes</th></tr>
                         </thead>
                         <tbody>
-                            <tr v-for="member in membersHighest" ><td> {{ member.first_name }} {{ member.last_name }} </td><td> {{ member.missed_votes }} </td><td> {{ member.missed_votes_pct }} </td></tr>
+                            <tr v-for="member in membersHighest" >
+                                <td> {{ member.first_name }} {{ member.middle_name }} {{ member.last_name }} </td>
+                                <td> {{ member.missed_votes }} </td>
+                                <td> {{ member.missed_votes_pct }} </td></tr>
                         </tbody>
                     </table>
         
@@ -123,7 +126,10 @@
                             <tr><th>Name</th><th>Missed Votes</th><th>% Missed Votes</th></tr>
                         </thead>
                         <tbody>
-                            <tr v-for="member in membersLowest" ><td> {{ member.first_name }} {{ member.last_name }} </td><td> {{ member.missed_votes }} </td><td> {{ member.missed_votes_pct }} </td></tr>
+                            <tr v-for="member in membersLowest" >
+                                <td> {{ member.first_name }} {{ member.middle_name }} {{ member.last_name }} </td>
+                                <td> {{ member.missed_votes }} </td>
+                                <td> {{ member.missed_votes_pct }} </td></tr>
                         </tbody>
                     </table>
                     </div>
@@ -186,10 +192,10 @@
 
         </div> 
 
-        <page id='senate'></page>
+        <house id='senate'></house>
         <!-- <script src="pro-congress-113-house.js"></script> -->
         <script src="vue-statistics.js"></script>
-        <script src="statistics.js"></script>  
+        <!-- <script src="statistics.js"></script>   -->
         <script src="ajax.js"></script>
         
 

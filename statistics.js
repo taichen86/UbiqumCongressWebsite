@@ -29,7 +29,6 @@ var statisticsObj = [
 let key = 'votes_with_party_pct';
 const partyLetters = [ 'R', 'D', 'I' ];
 
-// stats - numOfReps
 function getNumOfMembersInEachParty( )
 {     
     allMembers.forEach( member => {
@@ -39,19 +38,20 @@ function getNumOfMembersInEachParty( )
 
 }
 
-// stats - 
 function getAveragePartyVotes( )
 {
     for( var i=0; i<3; i++ )
     {
+        vueSummary.parties[i].numOfReps = statisticsObj[i].members.length;
+        let total = statisticsObj[i].members.reduce( (accum, value) => accum + value.votes_with_party_pct, 0 );
+        vueSummary.parties[i].avgVoted = ( total / vueSummary.parties[i].numOfReps ).toFixed( 2 );
+       
+        /*
         statisticsObj[i].numOfMembers = statisticsObj[i].members.length;
-        vueSummary.parties[i].numOfReps = statisticsObj[i].numOfMembers;
-        
         let total = statisticsObj[i].members.reduce( (accum, value) => accum + value.votes_with_party_pct, 0 );
         statisticsObj[i].avgPartyVotes = ( total / statisticsObj[i].numOfMembers ).toFixed( 2 );
-        vueSummary.parties[i].avgVoted = statisticsObj[i].avgPartyVotes;
+        */
     }
-    // TODO: vue insert value here
 }
 
 
@@ -74,7 +74,7 @@ function getHighestLowest( members, key )
     return result;
 }
 
-
+/*
 function createHiLowTable( tableID, members, key )
 {
     
@@ -91,14 +91,15 @@ function createHiLowTable( tableID, members, key )
         tr.append( td );
 
         td = document.createElement( 'td' );
-    //  td.append( document.createTextNode( member.votes_with_party_pct ) );
         td.append( document.createTextNode( member[key] ) );
         tr.append( td );
         tbody.append( tr );
     } );
 }
+*/
 
-function populateCommonTable( ) // TODO: change to vue
+/*
+function populateCommonTable( ) 
 {
     const table = document.getElementById( "summaryTable" );
     for( var i=0; i<3; i++ )
@@ -107,6 +108,7 @@ function populateCommonTable( ) // TODO: change to vue
         table.rows[i+1].cells[2].append( document.createTextNode( statisticsObj[i].avgPartyVotes ) );
     }
 }
+*/
 
 function populateHiLowTables( )
 {

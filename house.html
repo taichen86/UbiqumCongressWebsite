@@ -11,7 +11,7 @@
 </head>
     
     <body>
-
+    <div id="vue-tables">
         <div class="row">
             <div class="col-md-1"></div>
             <div class="col-md-3">
@@ -79,24 +79,34 @@
             <div class="col-md-1"></div>
             <div class="col-md-5">
                 Filter by Party: 
+                <input name="partyfilter" type="checkbox" value="R" checked v-on:click="filterByParty"> republican
+                <input name="partyfilter" type="checkbox" value="D" checked v-on:click="filterByParty"> democrat
+                <input name="partyfilter" type="checkbox" value="I" checked v-on:click="filterByParty"> independent
+                <!--
                 <input name="partyfilter" type="checkbox" value="R" onclick="filterByParty()" checked> republican
                 <input name="partyfilter" type="checkbox" value="D" onclick="filterByParty()" checked> democrat
                 <input name="partyfilter" type="checkbox" value="I" onclick="filterByParty()" checked> independent
+                -->
             </div>
             <div class="col-md-5">
                 Filter by State:
+                <select id='statefilter' v-on:change="filterByState">
+                    <option>ALL</option>
+                </select>
+                <!--
                 <select name="statefilter"  onchange="filterByState()">
                     <option>ALL</option>
                 </select>
+                -->
             </div>
             <div class="col-md-1"></div>
         </div>
 
-        <div class="row" id="vue-tables">
+        <div class="row">
             <div class="col-md-1"></div>
             <div class="col-md-10">
                     <table id="members-table" class="table">
-                            <tr v-for="member in congressMembers">
+                            <tr v-for="member in membersToShow">
                                 <td> {{ member.first_name }} {{ member.middle_name }} {{ member.last_name }} </td>
                                 <td> {{ member.party}} </td>
                                 <td> {{ member.state }} </td>
@@ -116,12 +126,12 @@
         <div class="col-md-1"></div>
         </div>
     
-        <page id='house'></page>
+        <house id='house'></house>
         <!--<script src="pro-congress-113-house.js"></script>-->
-        <script src="main.js"></script>  
+        <!-- <script src="main.js"></script>   -->
         <script src="vue-congress.js"></script>
-        <script src="ajax.js"></script>
-        
+        <!-- <script src="ajax.js"></script> -->
+    </div>
     </body>
     
 </html>

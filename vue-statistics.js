@@ -13,14 +13,14 @@ var stats = new Vue({
     data: {
       parties: [
         { partyName: 'Republicans',
-          numOfReps: 'num of reps R',
-          avgVoted: 'avg R'  },
+          numOfReps: 0,
+          avgVoted: 0 },
         { partyName: 'Democrats',
-          numOfReps: 'num of reps',
-          avgVoted: 'avg D'  },
+          numOfReps: 0,
+          avgVoted: 0 },
         { partyName: 'Independents',
-          numOfReps: 'num of reps I',
-          avgVoted: 'avg I'  }
+          numOfReps: 0,
+          avgVoted: 0 }
       ]
     }
 

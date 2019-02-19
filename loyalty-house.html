@@ -109,7 +109,7 @@
                                     <tr><th>Name</th><th>Number Party Votes</th><th>% Party Votes</th></tr>                                </thead>
                                 <tbody>
                                     <tr v-for="member in membersLowest" >
-                                        <td> {{ member.first_name }} {{ member.last_name }} </td>
+                                        <td> {{ member.first_name }} {{ member.middle_name }} {{ member.last_name }} </td>
                                         <td> {{ member.total_votes }} </td>
                                         <td> {{ member.votes_with_party_pct }} </td></tr>
                                 </tbody>
@@ -121,7 +121,7 @@
                                     <tr><th>Name</th><th>Number Party Votes</th><th>% Party Votes</th></tr>                                </thead>
                                 <tbody>
                                     <tr v-for="member in membersHighest" >
-                                        <td> {{ member.first_name }} {{ member.last_name }} </td>
+                                        <td> {{ member.first_name }} {{ member.middle_name }} {{ member.last_name }} </td>
                                         <td> {{ member.total_votes }} </td>
                                         <td> {{ member.votes_with_party_pct }} </td></tr>
                                 </tbody>
@@ -186,7 +186,8 @@
 
         </div> 
 
-        <page id='house'></page>
+        <house id='house'></house>
+
         <!-- <script src="pro-congress-113-house.js"></script> -->
         <script src="vue-statistics.js"></script>
         <script src="statistics.js"></script>  

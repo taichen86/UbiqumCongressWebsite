@@ -18,7 +18,6 @@ function getData( version = '113', house = 'senate' )
     console.log( 'house : ' + house );
     if( canStore ) // check if data already exists
     {
-    //    console.log( 'get stored item... ' + sessionStorage.getItem( house ) );
         if( sessionStorage.getItem( house ) != null )
         {
         //    console.log( 'got data already.' + JSON.parse( sessionStorage.getItem( house ) ) );
@@ -29,7 +28,7 @@ function getData( version = '113', house = 'senate' )
     }
 
     const url = `https://api.propublica.org/congress/v1/${version}/${house}/members.json`;
-  //  console.log( '=== GET DATA ===>' + url );
+    console.log( '=== GET DATA ===>' + url );
     fetchJson( url , 
     {
         method: 'GET',
@@ -46,5 +45,5 @@ function getData( version = '113', house = 'senate' )
 }
 
 
-const house = document.getElementsByTagName( 'page' )[0].id;
+const house = document.getElementsByTagName( 'house' )[0].id;
 getData( '113', house );
