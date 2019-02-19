@@ -1,4 +1,5 @@
-const allMembers = data.results[0].members;
+let allMembers = [];
+
 let membersOrdered = []; // for both
 let membersLowest = [];
 let membersHighest = [];
@@ -28,9 +29,9 @@ var statisticsObj = [
 let key = 'votes_with_party_pct';
 const partyLetters = [ 'R', 'D', 'I' ];
 function getNumOfMembersInEachParty( )
-{ 
+{     
     allMembers.forEach( member => {
-        console.log( member );
+    //    console.log( member );
         statisticsObj[ partyLetters.indexOf( member.party ) ].members.push( member );
     } );
 
@@ -84,7 +85,7 @@ function createHiLowTable( tableID, members, key )
         tr.append( td );
 
         td = document.createElement( 'td' );
-    //    td.append( document.createTextNode( member.votes_with_party_pct ) );
+    //  td.append( document.createTextNode( member.votes_with_party_pct ) );
         td.append( document.createTextNode( member[key] ) );
         tr.append( td );
         tbody.append( tr );
@@ -124,11 +125,15 @@ function getHiLowMemberArrays( )
 }
 
 
-getNumOfMembersInEachParty();
-getAveragePartyVotes();
-populateCommonTable();
-//populateHiLowTables();
-getHiLowMemberArrays();
+function initialize()
+{
+    getNumOfMembersInEachParty();
+    getAveragePartyVotes();
+    populateCommonTable();
+    //populateHiLowTables();
+    getHiLowMemberArrays();
+}
+
 
 
 
