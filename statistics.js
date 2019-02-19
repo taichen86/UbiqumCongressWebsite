@@ -1,4 +1,3 @@
-console.log( 'statistics script' );
 let allMembers = [];
 
 let membersOrdered = []; // for both

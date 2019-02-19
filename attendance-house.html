@@ -11,6 +11,7 @@
         </head>
     
     <body id='missed_votes_pct'>
+            <div id="vue-tables">
             <div class="row">
                     <div class="col-xs-1"></div>
                     <div class="col-xs-3">
@@ -107,7 +108,6 @@
                             </table>
 
                             <h2>Least Engaged (Bottom 10% of Party)</h2>
-                            <div id='vue-tables'>
                             <table class='table table-striped'>
                                 <thead>
                                     <tr><th>Name</th><th>Missed Votes</th><th>% Missed Votes</th></tr>
@@ -132,7 +132,6 @@
                                         <td> {{ member.missed_votes_pct }} </td></tr>
                                 </tbody>
                             </table>
-                            </div>
 
                             <!--
                             <table id="summaryTable" class="table table-striped">
@@ -192,12 +191,12 @@
 
         </div> 
 
-        <house id='house'></house>
+        <div id='house'></div>
         <!-- <script src="pro-congress-113-house.js"></script> -->
+        <!-- <script src="statistics.js"></script> -->
+        <!-- <script src="ajax.js"></script> -->
         <script src="vue-statistics.js"></script>
-        <!-- <script src="statistics.js"></script>   -->
-        <script src="ajax.js"></script>
         
-
+        </div>
 </body>
 </html>

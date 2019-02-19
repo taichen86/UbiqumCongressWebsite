@@ -1,7 +1,7 @@
 var stats = new Vue({
     el: '#vue-tables',
     data: {
-      house: document.getElementsByTagName( 'house' )[0].id,
+      house: 'senate',
       stateFilter: document.getElementById( 'statefilter' ),
       allStates: [],
       stateSelected: [],
@@ -13,16 +13,15 @@ var stats = new Vue({
 
     created : function( )
     {
-      console.log("console from vue", this.congressMembers);
-      this.test();
-      this.getData( '113', this.house );
+        this.house = this.getHouseName();
+        this.getData( );
     },
 
     methods: {
 
-      test: function()
+      getHouseName: function()
       {
-        console.log( "===this is a test function ====");
+        return ( document.getElementById( 'house' ) == null ) ? 'senate' : 'house'
       },
 
       canStore: function ()
@@ -39,21 +38,21 @@ var stats = new Vue({
         });
       },
 
-      getData: function ( version = '113', house = 'senate' )
+      getData: function ( )
       {
-          console.log( 'house : ' + house );
           if( this.canStore ) // check if data already exists
           {
-              if( sessionStorage.getItem( house ) != null )
+              if( sessionStorage.getItem( this.house ) != null )
               {
               //    console.log( 'got data already.' + JSON.parse( sessionStorage.getItem( house ) ) );
-                  this.allMembers = JSON.parse( sessionStorage.getItem( house ) );
+                  this.allMembers = JSON.parse( sessionStorage.getItem( this.house ) );
                   this.initialize();
                   return;
               }
           }
       
-          const url = `https://api.propublica.org/congress/v1/${version}/${house}/members.json`;
+          console.log( 'house name ---' + this.house );
+          const url = `https://api.propublica.org/congress/v1/113/${this.house}/members.json`;
           console.log( '=== GET DATA ===>' + url );
           this.fetchJSON( url , 
           {
@@ -63,7 +62,7 @@ var stats = new Vue({
               this.allMembers = result.results[0].members;
               if( this.canStore )
               { 
-                  sessionStorage.setItem( house , JSON.stringify( this.allMembers ) );
+                  sessionStorage.setItem( this.house , JSON.stringify( this.allMembers ) );
               //    console.log( 'store --> ' + sessionStorage.getItem( house ) );
               }
               this.initialize();
@@ -102,14 +101,16 @@ var stats = new Vue({
 
       filterByState: function ()
       {
+          console.log( this.stateFilter.value );
         /* WHY????????
           console.log( `filter by state: ${this.stateFilter.value}` );
           this.stateSelected = ( this.stateFilter.value == 'ALL' ) ? this.allStates : this.stateFilter.value;
           */
+          
          console.log( `filter by state: ${document.getElementById( 'statefilter' ).value}` );
          this.stateSelected = ( document.getElementById( 'statefilter' ).value == 'ALL' ) ? this.allStates : document.getElementById( 'statefilter' ).value;
          
-          this.insertTableOfMembers( );
+        this.insertTableOfMembers( );
       },
 
       insertTableOfMembers: function ( )
