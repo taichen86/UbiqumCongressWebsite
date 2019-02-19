@@ -1,7 +1,7 @@
 
 var membersTable = document.getElementById( 'members-table' );
 var stateFilter = document.getElementsByName( 'statefilter' )[0];
-
+let allMembers = []
 
 var membersToShow = [];
 var allStates = [];

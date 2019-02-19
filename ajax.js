@@ -1,3 +1,4 @@
+console.log( 'ajax script' );
 function canStore()
 {
     return ( typeof(Storage) !== "undefined" ) ? true : false
@@ -25,7 +26,6 @@ function getData( version = '113', house = 'senate' )
             initialize();
             return;
         }
-
     }
 
     const url = `https://api.propublica.org/congress/v1/${version}/${house}/members.json`;

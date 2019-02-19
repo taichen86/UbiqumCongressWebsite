@@ -1,3 +1,5 @@
+console.log( 'vue script' );
+
 var stats = new Vue({
     el: '#vue-tables',
     data: {
@@ -6,3 +8,4 @@ var stats = new Vue({
       
     }
   })
+  console.log( 'vue script END' );
