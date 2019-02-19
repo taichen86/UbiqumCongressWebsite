@@ -26,27 +26,32 @@ var statisticsObj = [
     }
 ];
 
-
 let key = 'votes_with_party_pct';
 const partyLetters = [ 'R', 'D', 'I' ];
+
+// stats - numOfReps
 function getNumOfMembersInEachParty( )
 {     
     allMembers.forEach( member => {
-    //    console.log( member );
+    //   console.log( member );
         statisticsObj[ partyLetters.indexOf( member.party ) ].members.push( member );
     } );
 
-
 }
 
+// stats - 
 function getAveragePartyVotes( )
 {
     for( var i=0; i<3; i++ )
     {
         statisticsObj[i].numOfMembers = statisticsObj[i].members.length;
+        vueSummary.parties[i].numOfReps = statisticsObj[i].numOfMembers;
+        
         let total = statisticsObj[i].members.reduce( (accum, value) => accum + value.votes_with_party_pct, 0 );
         statisticsObj[i].avgPartyVotes = ( total / statisticsObj[i].numOfMembers ).toFixed( 2 );
+        vueSummary.parties[i].avgVoted = statisticsObj[i].avgPartyVotes;
     }
+    // TODO: vue insert value here
 }
 
 
@@ -93,7 +98,7 @@ function createHiLowTable( tableID, members, key )
     } );
 }
 
-function populateCommonTable( )
+function populateCommonTable( ) // TODO: change to vue
 {
     const table = document.getElementById( "summaryTable" );
     for( var i=0; i<3; i++ )
@@ -128,9 +133,10 @@ function getHiLowMemberArrays( )
 
 function initialize()
 {
+    console.log( 'initialize' );
     getNumOfMembersInEachParty();
     getAveragePartyVotes();
-    populateCommonTable();
+    //populateCommonTable();
     //populateHiLowTables();
     getHiLowMemberArrays();
 }

@@ -71,7 +71,7 @@
         </header>
         <!--Table container-->
      
-        <div id="vue-tables">
+        <div>
         <div class="row">
                 <div class="col-md-1"></div>
                 <div class="col-md-6">
@@ -88,7 +88,47 @@
             <div class="row">
                     <div class="col-md-1"></div>
                     <div class="col-md-10">
-                            <h2>Senate at a glance</h2>
+                            <h2>House at a glance</h2>
+
+                            <table id="summary-tables" class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Party</th>
+                                        <th>Number of Reps</th>
+                                        <th>% Voted with Prty</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr v-for="party in parties">
+                                    <td> {{ party.partyName }}</td>
+                                    <td> {{ party.numOfReps }}</td>
+                                    <td> {{ party.avgVoted }}</td></tr>
+                                </tbody>
+                            </table>
+
+                            <h2>Least Engaged (Bottom 10% of Party)</h2>
+                            <div id='vue-tables'>
+                            <table class='table table-striped'>
+                                <thead>
+                                    <tr><th>Name</th><th>Missed Votes</th><th>% Missed Votes</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr v-for="member in membersHighest" ><td> {{ member.first_name }} {{ member.last_name }} </td><td> {{ member.missed_votes }} </td><td> {{ member.missed_votes_pct }} </td></tr>
+                                </tbody>
+                            </table>
+                
+                            <h2>Most Engaged (Top 10% of Party)</h2>
+                            <table class='table table-striped'>
+                                <thead>
+                                    <tr><th>Name</th><th>Missed Votes</th><th>% Missed Votes</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr v-for="member in membersLowest" ><td> {{ member.first_name }} {{ member.last_name }} </td><td> {{ member.missed_votes }} </td><td> {{ member.missed_votes_pct }} </td></tr>
+                                </tbody>
+                            </table>
+                            </div>
+
+                            <!--
                             <table id="summaryTable" class="table table-striped">
                                 <thead>
                                     <tr>
@@ -115,6 +155,7 @@
                                     </tr>
                                 </tbody>
                             </table>
+                        -->
         
                     <!--
                     <h2>Least Loyal (Bottom 10% of Party)</h2>
@@ -138,26 +179,7 @@
                     </table>
                     -->
 
-                    <h2>Least Engaged (Bottom 10% of Party)</h2>
-                    <table class='table table-striped'>
-                        <thead>
-                            <tr><th>Name</th><th>Missed Votes</th><th>% Missed Votes</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr v-for="member in membersHighest" ><td> {{ member.first_name }} {{ member.last_name }} </td><td> {{ member.missed_votes }} </td><td> {{ member.missed_votes_pct }} </td></tr>
-                        </tbody>
-                    </table>
-        
-                    <h2>Most Engaged (Top 10% of Party)</h2>
-                    <table class='table table-striped'>
-                        <thead>
-                            <tr><th>Name</th><th>Missed Votes</th><th>% Missed Votes</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr v-for="member in membersLowest" ><td> {{ member.first_name }} {{ member.last_name }} </td><td> {{ member.missed_votes }} </td><td> {{ member.missed_votes_pct }} </td></tr>
-                        </tbody>
-                    </table>
-        
+
                 <div class="col-md-1"></div>
                 </div>
             </div>
@@ -166,8 +188,8 @@
 
         <page id='house'></page>
         <!-- <script src="pro-congress-113-house.js"></script> -->
-        <script src="statistics.js"></script>  
         <script src="vue-statistics.js"></script>
+        <script src="statistics.js"></script>  
         <script src="ajax.js"></script>
         
 
