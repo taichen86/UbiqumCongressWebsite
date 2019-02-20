@@ -76,60 +76,62 @@
      
         <div>
         <div class="row">
-                <div class="col-md-1"></div>
-                <div class="col-md-6">
-                    <h2>Party Loyalty</h2>
-                    <p>Those who consider themselves to be strong partisans, strong Democrats and strong Republicans respectively, tend to be the most faithful in voting for their party's nominee for office and legislation that backs their party's agenda. </p>        
-                </div>
-                <div class="col-md-5"></div>
+            <div class="col-md-1"></div>
+            <div class="col-md-5">
+                <h2>Party Loyalty</h2>
+                <p>Those who consider themselves to be strong partisans, strong Democrats and strong Republicans respectively, tend to be the most faithful in voting for their party's nominee for office and legislation that backs their party's agenda. </p>        
             </div>
+            <div class="col-md-5">
+                <h2>Senate at a glance</h2>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Party</th>
+                            <th>Number of Reps</th>
+                            <th>% Voted with Prty</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="party in parties">
+                        <td> {{ party.partyName }}</td>
+                        <td> {{ party.numOfReps }}</td>
+                        <td> {{ party.avgVoted }}</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
 
 
             <div class="row">
-                    <div class="col-md-1"></div>
-                    <div class="col-md-10">
-                            <h2>Senate at a glance</h2>
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>Party</th>
-                                        <th>Number of Reps</th>
-                                        <th>% Voted with Prty</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr v-for="party in parties">
-                                    <td> {{ party.partyName }}</td>
-                                    <td> {{ party.numOfReps }}</td>
-                                    <td> {{ party.avgVoted }}</td></tr>
-                                </tbody>
-                            </table>
+                <div class="col-md-1"></div>
+                <div class="col-md-5">
+                    <h2>Least Loyal (Bottom 10% of Party)</h2>
+                    <table class='table table-striped'>
+                        <thead>
+                            <tr><th>Name</th><th>Number Party Votes</th><th>% Party Votes</th></tr>                                </thead>
+                        <tbody>
+                            <tr v-for="member in membersHighest" >
+                                <td> {{ member.first_name }} {{ member.middle_name }} {{ member.last_name }} </td>
+                                <td> {{ member.total_votes }} </td>
+                                <td> {{ member.votes_with_party_pct }} </td></tr>
+                        </tbody>
+                    </table>
+                </div>
 
-                            <h2>Least Loyal (Bottom 10% of Party)</h2>
-                            <div id='vue-tables'>
-                            <table class='table table-striped'>
-                                <thead>
-                                    <tr><th>Name</th><th>Number Party Votes</th><th>% Party Votes</th></tr>                                </thead>
-                                <tbody>
-                                    <tr v-for="member in membersHighest" >
-                                        <td> {{ member.first_name }} {{ member.middle_name }} {{ member.last_name }} </td>
-                                        <td> {{ member.total_votes }} </td>
-                                        <td> {{ member.votes_with_party_pct }} </td></tr>
-                                </tbody>
-                            </table>
-                
-                            <h2>Most Loyal (Top 10% of Party)</h2>
-                            <table class='table table-striped'>
-                                <thead>
-                                    <tr><th>Name</th><th>Number Party Votes</th><th>% Party Votes</th></tr>                                </thead>
-                                <tbody>
-                                    <tr v-for="member in membersLowest" >
-                                        <td> {{ member.first_name }} {{ member.middle_name }} {{ member.last_name }} </td>
-                                        <td> {{ member.total_votes }} </td>
-                                        <td> {{ member.votes_with_party_pct }} </td></tr>
-                                </tbody>
-                            </table>
-                            </div>
+                <div class="col-md-5">
+                <h2>Most Loyal (Top 10% of Party)</h2>
+                <table class='table table-striped'>
+                    <thead>
+                        <tr><th>Name</th><th>Number Party Votes</th><th>% Party Votes</th></tr>                                </thead>
+                    <tbody>
+                        <tr v-for="member in membersLowest" >
+                            <td> {{ member.first_name }} {{ member.middle_name }} {{ member.last_name }} </td>
+                            <td> {{ member.total_votes }} </td>
+                            <td> {{ member.votes_with_party_pct }} </td></tr>
+                    </tbody>
+                </table>
+                </div>
 
                             <!--
                             <table id="summaryTable" class="table table-striped">
@@ -184,7 +186,6 @@
 
 
                 <div class="col-md-1"></div>
-                </div>
             </div>
             <!-- footer -->
             <vue-footer></vue-footer>
