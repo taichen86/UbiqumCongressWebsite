@@ -1,10 +1,8 @@
 
-var stats = new Vue({
+new Vue({
 
-    el: '#vue-tables',
-    
+    el: '#vue-statistics',
     data: 
-    
     {
         house: 'senate',
       partyLetters: [ 'R', 'D', 'I' ],
@@ -31,6 +29,11 @@ var stats = new Vue({
     {
         this.house = this.getHouseName();
         this.getData( );
+    },
+
+    mounted: function()
+    {
+        this.hideSpinners();
     },
 
     methods: 
@@ -68,7 +71,7 @@ var stats = new Vue({
               }
           }
       
-          const url = `https://api.propublica.org/congress/v1/${version}/${this.house}/members.json`;
+          const url = `https://api.propublica.org/congress/v1/113/${this.house}/members.json`;
           console.log( '=== GET DATA ===>' + url );
           this.fetchJSON( url , 
           {
@@ -87,7 +90,7 @@ var stats = new Vue({
 
       initialize: function ()
       {
-          console.log( 'initialize' );
+          console.log( 'initialize-----------' );
           this.getNumOfMembersInEachParty();
           this.getAveragePartyVotes();
           this.getHiLowMemberArrays();
@@ -136,9 +139,12 @@ var stats = new Vue({
               result.push( members[i] );
           }
           return result;
-      }
+      },
 
-
+      hideSpinners: function()
+        {
+            Array.from( document.getElementsByClassName( 'spinner' ) ).forEach( spinner => spinner.style.display = 'none' );
+        }
 
     }
   });

@@ -1,6 +1,9 @@
-var stats = new Vue({
-    el: '#vue-tables',
+new Vue({
+
+    el: '#vue-congress',
+
     data: {
+
       house: 'senate',
       stateFilter: document.getElementById( 'statefilter' ),
       allStates: [],
@@ -11,10 +14,15 @@ var stats = new Vue({
 
     },
 
-    created : function( )
+    created: function( )
     {
         this.house = this.getHouseName();
         this.getData( );
+    },
+
+    mounted: function()
+    {
+        this.hideSpinners();
     },
 
     methods: {
@@ -110,7 +118,7 @@ var stats = new Vue({
          console.log( `filter by state: ${document.getElementById( 'statefilter' ).value}` );
          this.stateSelected = ( document.getElementById( 'statefilter' ).value == 'ALL' ) ? this.allStates : document.getElementById( 'statefilter' ).value;
          
-        this.insertTableOfMembers( );
+            this.insertTableOfMembers( );
       },
 
       insertTableOfMembers: function ( )
@@ -121,6 +129,12 @@ var stats = new Vue({
           this.membersToShow = this.membersToShow.filter( member => this.stateSelected.indexOf( member.state ) > -1 );
           console.log( 'number of members: ' + this.membersToShow.length );
 
+        },
+
+        hideSpinners: function()
+        {
+        //    console.log( 'hide spinners' + document.getElementsByClassName( 'spinner' ) );
+            Array.from( document.getElementsByClassName( 'spinner' ) ).forEach( spinner => spinner.style.display = 'none' );
         }
 
     }
