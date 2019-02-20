@@ -12,21 +12,23 @@
     
     <body id='votes_with_party_pct'>
         <div id="vue-tables">
-            <div class="row">
-                    <div class="col-xs-1"></div>
-                    <div class="col-xs-3">
-                        <img src="logo-sm.jpg" alt="TGIF logo">
-                    </div>
-                    <div class="col-xs-6"></div>
-                    <div class="col-xs-1">
-                        <a href="mailto: info@tgif.net">info@TGIF.net </a>
-                    </div>
-                    <div class="col-xs-1">
-                    </div>
+            <vue-logo-bar></vue-logo-bar>
+            <!-- <div class="row">
+                <div class="col-xs-1"></div>
+                <div class="col-xs-3">
+                    <img src="logo-sm.jpg" alt="TGIF logo">
                 </div>
+                <div class="col-xs-6"></div>
+                <div class="col-xs-1">
+                    <a href="mailto: info@tgif.net">info@TGIF.net </a>
+                </div>
+                <div class="col-xs-1">
+                </div>
+            </div> -->
                 
         <!-- nav bar -->
-        <div class="row">
+        <vue-navbar></vue-navbar>
+        <!-- <div class="row">
             <div class="col-md-1"></div>
                 <div class="col-md-10">
                         <nav class="navbar navbar-default">
@@ -61,9 +63,9 @@
                                     
                                 </div>
                             </nav> 
-                </div>
-            <div class="col-md-1"></div>
-            </div>
+                    </div>
+                <div class="col-md-1"></div>
+            </div> -->
   
 
         <header>            
@@ -182,15 +184,17 @@
                 <div class="col-md-1"></div>
                 </div>
             </div>
-
+            <!-- footer -->
+            <vue-footer></vue-footer>
         </div> 
 
         <house id='house'></house>
 
         <!-- <script src="pro-congress-113-house.js"></script> -->
-        <script src="vue-statistics.js"></script>
         <!-- <script src="statistics.js"></script>   -->
         <!-- <script src="ajax.js"></script> -->
+        <script src="vue-common.js"></script>
+        <script src="vue-statistics.js"></script>
         
     </div>
 </body>

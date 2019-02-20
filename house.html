@@ -12,7 +12,8 @@
     
     <body>
     <div id="vue-tables">
-        <div class="row">
+        <vue-logo-bar></vue-logo-bar>
+        <!-- <div class="row">
             <div class="col-md-1"></div>
             <div class="col-md-3">
                 <img src="logo-sm.jpg" alt="TGIF logo">
@@ -23,10 +24,11 @@
             </div>
             <div class="col-md-1">
             </div>
-        </div>
+        </div> -->
     
         <!-- nav bar -->
-        <div class="row">
+        <vue-navbar></vue-navbar>
+        <!-- <div class="row">
         <div class="col-md-1"></div>
             <div class="col-md-10">
                 <nav class="navbar navbar-default">
@@ -62,7 +64,7 @@
                 </nav> 
             </div>
         <div class="col-md-1"></div>
-        </div>
+        </div> -->
     
         <!-- body content -->
         <div class="row">
@@ -72,7 +74,7 @@
                 <p>The major power of the House is to pass federal legislation that affects the entire country, although its bills must also be passed by the Senate and further agreed to by the U.S. President before becoming law (unless both the House and Senate re-pass the legislation with a two-thirds majority in each chamber). The House has some exclusive powers: the power to initiate revenue bills, to impeach officials (impeached officials are subsequently tried in the Senate), and to elect the U.S. President in case there is no majority in the Electoral College.</p>
                 <p>Each U.S. state is represented in the House in proportion to its population as measured in the census, but every state is entitled to at least one representative. </p>
             </div>
-        <div class="col-md-5"></div>
+            <div class="col-md-5"></div>
         </div>
 
         <div class="row">
@@ -105,26 +107,20 @@
         <div class="row">
             <div class="col-md-1"></div>
             <div class="col-md-10">
-                    <table id="members-table" class="table">
-                            <tr v-for="member in membersToShow">
-                                <td> {{ member.first_name }} {{ member.middle_name }} {{ member.last_name }} </td>
-                                <td> {{ member.party}} </td>
-                                <td> {{ member.state }} </td>
-                                <td> {{ member.seniority }} </td>
-                                <td> {{ member.votes_with_party_pct + '%' }} </td></tr>
-                        </table>
+                <table id="members-table" class="table">
+                    <tr v-for="member in membersToShow">
+                        <td> {{ member.first_name }} {{ member.middle_name }} {{ member.last_name }} </td>
+                        <td> {{ member.party}} </td>
+                        <td> {{ member.state }} </td>
+                        <td> {{ member.seniority }} </td>
+                        <td> {{ member.votes_with_party_pct + '%' }} </td></tr>
+                </table>
             </div>
-        <div class="col-md-1"></div>
+            <div class="col-md-1"></div>
         </div>
     
         <!-- footer -->
-        <div class="row">
-        <div class="col-md-1"></div>
-            <div class="col-md-10 well">
-                @2018 TGIF | All Rights Reserved
-            </div>
-        <div class="col-md-1"></div>
-        </div>
+        <vue-footer></vue-footer>
     
         <div id='house'></div>
         </div>
@@ -132,6 +128,7 @@
         <!-- <script src="pro-congress-113-house.js"></script> -->
         <!-- <script src="main.js"></script> -->
         <!-- <script src="ajax.js"></script> -->
+        <script src="vue-common.js"></script>
         <script src="vue-congress.js"></script>
     
     </body>

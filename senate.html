@@ -13,7 +13,8 @@
     
     <body>
         <div id="vue-tables">
-        <div class="row">
+        <vue-logo-bar></vue-logo-bar>
+        <!-- <div class="row">
             <div class="col-md-1"></div>
             <div class="col-md-3">
                 <img src="logo-sm.jpg" alt="TGIF logo">
@@ -24,10 +25,11 @@
             </div>
             <div class="col-md-1">
             </div>
-        </div>
+        </div> -->
     
         <!-- nav bar -->
-        <div class="row">
+        <vue-navbar></vue-navbar>
+        <!-- <div class="row">
         <div class="col-md-1"></div>
             <div class="col-md-10">
                     <nav class="navbar navbar-default">
@@ -64,7 +66,7 @@
                         </nav> 
             </div>
         <div class="col-md-1"></div>
-        </div>
+        </div> -->
     
         <!-- body content -->
         <div class="row">
@@ -94,7 +96,7 @@
                 <select id='statefilter' v-on:change="filterByState">
                     <option>ALL</option>
                 </select>
-                <!--                
+<!--                                
                 <select name="statefilter"  onchange="filterByState()">
                     <option>ALL</option>
                 </select>
@@ -122,21 +124,19 @@
 
     
         <!-- footer -->
-        <div class="row">
-        <div class="col-md-1"></div>
-            <div class="col-md-10 well">
-                @2018 TGIF | All Rights Reserved
-            </div>
-            <div class="col-md-1"></div>
-        </div>
-    
+        <vue-footer></vue-footer>
+
+
         <div id='senate'></div>
+        </div>
+
         <!--<script src="pro-congress-113-senate.js"></script>-->
         <!-- <script src="main.js"></script> -->
         <!-- <script src="ajax.js"></script> -->
+        <script src="vue-common.js"></script>
         <script src="vue-congress.js"></script>
 
-    </div>
+
     </body>
     
 </html>

@@ -122,14 +122,6 @@ var stats = new Vue({
           console.log( 'number of members: ' + this.membersToShow.length );
 
         }
-      
-      
-
-
-
-
-      
-
 
     }
   })
