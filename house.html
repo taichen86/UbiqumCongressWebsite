@@ -61,9 +61,6 @@
                     <option>ALL</option>
                     <option v-for="state in allStates"> {{ state }} </option>
                 </select>
-                <!-- <select id='statefilter' v-on:change="filterByState">
-                    <option>ALL</option>
-                </select> -->
                 <!--
                 <select name="statefilter"  onchange="filterByState()">
                     <option>ALL</option>
@@ -79,7 +76,7 @@
                 <div class="spinner text-center">
                     <img src="spinner.gif" alt="loading...">
                 </div>
-                <table id="members-table" class="table" v-cloak>
+                <table id="members-table" class="table top-margin" v-cloak>
                     <tr v-for="member in membersToShow">
                         <td> {{ member.first_name }} {{ member.middle_name }} {{ member.last_name }} </td>
                         <td> {{ member.party}} </td>

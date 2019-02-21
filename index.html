@@ -90,7 +90,7 @@
     
                 <a href="javascript:void(0);" data-toggle="collapse" data-target="#about-expanded" id='read-more-btn'>read more...</a>
                 <div id="about-expanded" class="collapse">
-                    
+                <br>    
                 <h3>Background History of Government Transparency</h3>
                 <p>In the West, the idea that government should be open to public scrutiny and susceptible to public opinion dates back at least to the time of the Enlightenment, when many philosophes made an attack on absolutist doctrine of state secrecy, a core part of their intellectual project. The passage of formal legislative instruments to this end can also be traced to this time with Sweden, for example, (which then included Finland as a Swedish-governed territory) enacting free press legislation as part of its constitution (Freedom of the Press Act, 1766). This approach, and that of the philosophes more broadly, is strongly related to recent historiography on the eighteenth-century public sphere.
     
@@ -112,6 +112,15 @@
         </div>
 
         <div class="row"></div>
+
+        <script>
+            $('#about-expanded').on( 'show.bs.collapse', function () {
+                document.getElementById( 'read-more-btn' ).innerHTML = 'read less...';
+            });
+            $('#about-expanded').on( 'hidden.bs.collapse', function () {
+                document.getElementById( 'read-more-btn' ).innerHTML = 'read more...';
+            })
+        </script>
     </body>
     
 
