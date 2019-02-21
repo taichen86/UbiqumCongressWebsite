@@ -98,8 +98,9 @@
                 Filter by State:
                 <select id='statefilter' v-on:change="filterByState">
                     <option>ALL</option>
+                    <option v-for="state in allStates"> {{ state }} </option>
                 </select>
-<!--                                
+                <!--                                
                 <select name="statefilter"  onchange="filterByState()">
                     <option>ALL</option>
                 </select>

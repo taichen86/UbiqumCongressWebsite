@@ -29,43 +29,7 @@
     
         <!-- nav bar -->
         <vue-navbar></vue-navbar>
-        <!-- <div class="row">
-        <div class="col-md-1"></div>
-            <div class="col-md-10">
-                <nav class="navbar navbar-default">
-                    <div class="container-fluid">
-                        <div class="navbar-header">
-                            <a class="navbar-brand" href="#">TGIF</a>
-                        </div>
-                        <ul class="nav navbar-nav">
-                            <li><a href="index.html">Home</a></li>
-                            <li >
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Congress 113</a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="senate.html">Senate</a></li>
-                                    <li><a href="house.html">House</a></li>
-                                </ul>
-                            </li>
-                            <li >
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Attendance</a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="attendance-senate.html">Senate</a></li>
-                                    <li><a href="attendance-house.html">House</a></li>
-                                </ul>
-                            </li>
-                            <li >
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Loyalty</a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="loyalty-senate.html">Senate</a></li>
-                                    <li><a href="loyalty-house.html">House</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </nav> 
-            </div>
-        <div class="col-md-1"></div>
-        </div> -->
+
     
         <!-- body content -->
         <div class="row">
@@ -95,7 +59,11 @@
                 Filter by State:
                 <select id='statefilter' v-on:change="filterByState">
                     <option>ALL</option>
+                    <option v-for="state in allStates"> {{ state }} </option>
                 </select>
+                <!-- <select id='statefilter' v-on:change="filterByState">
+                    <option>ALL</option>
+                </select> -->
                 <!--
                 <select name="statefilter"  onchange="filterByState()">
                     <option>ALL</option>

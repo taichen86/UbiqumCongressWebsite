@@ -5,12 +5,11 @@ new Vue({
     data: {
 
       house: 'senate',
-      stateFilter: document.getElementById( 'statefilter' ),
       allStates: [],
       stateSelected: [],
       partiesSelected: ['R', 'D', 'I'],
       allMembers: [],
-      membersToShow: []
+      membersToShow: [],
 
     },
 
@@ -29,12 +28,17 @@ new Vue({
 
       getHouseName: function()
       {
-          return ( document.getElementById( 'house' ) == null ) ? 'senate' : 'house'
+          return ( document.getElementById( 'house' ) == null ) ? 'senate' : 'house';
+      },
+
+      getStateFilterValue: function()
+      {
+            return ( document.getElementById( 'statefilter' ).value );
       },
 
       canStore: function ()
       {
-          return ( typeof(Storage) !== "undefined" ) ? true : false
+          return ( typeof(Storage) !== "undefined" ) ? true : false;
       },
 
       fetchJSON: function ( url, init ) 
@@ -79,22 +83,16 @@ new Vue({
 
       initialize : function ( )
       {
-          console.log( 'initialize....' );
+          console.log( 'initialize.... ' + this.allMembers.length );
           // initialize states array
           this.allMembers.forEach( member =>
               {
                   if( this.allStates.indexOf( member.state ) < 0 )
-                      this.allStates.push( member.state );
+                  {
+                    this.allStates.push( member.state );
+                  }
               } );
-      
-            // create state dropdown list
-          this.allStates.forEach( state =>
-              {
-                 let option = document.createElement( 'option' );
-                 option.setAttribute( 'value', state ); 
-                 option.append( document.createTextNode( state ) );
-                 this.stateFilter.append( option );
-              } );
+        //   console.log( 'allStates: ' + this.allStates );
           
           this.stateSelected = this.allStates;
           this.membersToShow = this.allMembers;
@@ -110,15 +108,9 @@ new Vue({
 
       filterByState: function ()
       {
-          console.log( 'stateFilter' + this.stateFilter.value );
-        /* WHY????????
-          console.log( `filter by state: ${this.stateFilter.value}` );
-          this.stateSelected = ( this.stateFilter.value == 'ALL' ) ? this.allStates : this.stateFilter.value;
-          */
-          
-            console.log( `filter by state: ${document.getElementById( 'statefilter' ).value}` );
-            this.stateSelected = ( document.getElementById( 'statefilter' ).value == 'ALL' ) ? this.allStates : document.getElementById( 'statefilter' ).value;
-            
+          console.log( 'stateFilter' + this.getStateFilterValue() );
+            this.stateSelected = ( this.getStateFilterValue() == 'ALL' ) ? 
+                this.allStates : this.getStateFilterValue();
             this.insertTableOfMembers( );
       },
 
@@ -143,7 +135,5 @@ new Vue({
                 spinner.style.display = 'none' );
         },
 
-
-
-    }
+        }
   })
