@@ -72,16 +72,16 @@
         <div class="row">
             <div class="col-md-1"></div>
             <div class="col-md-6">
-                    <div class="spinner-border" role="status">
-                            <span class="sr-only">Loading...</span>
-                    </div>
+                <div class="spinner text-center">
+                        <img src="images/spinner.gif" alt="loading...">
+                </div>
                 <h2>Senators</h2>
                 <p>First convened in 1789, the composition and powers of the Senate are established in Article One of the U.S. Constitution. Each state is represented by two senators, regardless of population, who serve staggered six-year terms. The Senate has several exclusive powers not granted to the House, including consenting to treaties as a precondition to their ratification and consenting to or confirming appointments of Cabinet secretaries, federal judges, other federal executive officials, military officers, regulatory officials, ambassadors, and other federal uniformed officers, as well as trial of federal officials impeached by the House.</p>
             </div>
             <div class="col-md-5"></div>
         </div>
         
-        <div class="row">
+        <div class="row top-margin">
             <div class="col-md-1"></div>
             <div class="col-md-5">
                 Filter by Party: 
@@ -109,7 +109,7 @@
                 <div class="col-md-1"></div>
                 <div class="col-md-10">
                     <div class="spinner text-center">
-                        <img src="spinner.gif" alt="loading...">
+                        <img src="images/spinner.gif" alt="loading...">
                     </div>
                     <table id="members-table" class="table top-margin" v-cloak>
                         <tr v-for="member in membersToShow">
@@ -135,11 +135,8 @@
         <div id='senate'></div>
         </div>
 
-        <!--<script src="pro-congress-113-senate.js"></script>-->
-        <!-- <script src="main.js"></script> -->
-        <!-- <script src="ajax.js"></script> -->
-        <script src="vue-common.js"></script>
-        <script src="vue-congress.js"></script>
+        <script src="scripts/vue-common.js"></script>
+        <script src="scripts/vue-congress.js"></script>
 
 
     </body>

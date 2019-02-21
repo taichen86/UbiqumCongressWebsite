@@ -43,13 +43,6 @@ new Vue({
 
       fetchJSON: function ( url, init ) 
       {
-        // this is different - WHY??
-        // return fetch( url, init ).then( function( response ) 
-        // {
-        //   console.log( 'this' + this );
-        //   if( response.ok ){ return response.json(); }
-        //   throw new Error( response.statusText );
-        // }); 
         return fetch( url, init ).then( response =>
         {
             console.log( 'this' + this );
@@ -116,7 +109,7 @@ new Vue({
 
       filterByState: function ()
       {
-          console.log( 'stateFilter' + this.getStateFilterValue() );
+      //    console.log( 'stateFilter' + this.getStateFilterValue() );
             this.stateSelected = ( this.getStateFilterValue() == 'ALL' ) ? 
                 this.allStates : this.getStateFilterValue();
             this.insertTableOfMembers( );
@@ -141,7 +134,7 @@ new Vue({
         {
             Array.from( document.getElementsByClassName( 'spinner' ) ).forEach( spinner => 
                 spinner.style.display = 'none' );
-        },
+        }
 
         }
   })

@@ -9,7 +9,7 @@ Vue.component( 'vue-footer', {
 Vue.component( 'vue-logo-bar', {
     template: '<div class="row">' +
     '<div class="col-md-1"></div>' + 
-    '<div class="col-md-3"><img src="logo-sm.jpg" alt="TGIF logo"></div>' +
+    '<div class="col-md-3"><img src="images/logo-sm.jpg" alt="TGIF logo"></div>' +
     '<div class="col-md-6"></div>' +
     '<div class="col-md-1"><a href="mailto: info@tgif.net">info@TGIF.net </a></div>' +
     '<div class="col-md-1"></div></div>'
