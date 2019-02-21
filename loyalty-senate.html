@@ -124,6 +124,9 @@
                                 <td> {{ member.votes_with_party_pct }} </td></tr>
                         </tbody>
                     </table>
+                    <div class="text-center" v-if="membersHighest.length < 1"> 
+                        NO RESULTS FOUND
+                    </div>
                 </div>
 
                 <div class="col-md-5">
@@ -141,6 +144,9 @@
                             <td> {{ member.votes_with_party_pct }} </td></tr>
                     </tbody>
                 </table>
+                <div class="text-center" v-if="membersLowest.length < 1"> 
+                    NO RESULTS FOUND
+                </div>
                 </div>
 
                             <!--

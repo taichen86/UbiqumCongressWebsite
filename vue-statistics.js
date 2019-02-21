@@ -5,24 +5,24 @@ new Vue({
     data: 
     {
         house: 'senate',
-      partyLetters: [ 'R', 'D', 'I' ],
-      parties: [
-        { partyName: 'Republicans',
-          members: [],
-          numOfReps: 0,
-          avgVoted: 0 },
-        { partyName: 'Democrats',
-          members: [],
-          numOfReps: 0,
-          avgVoted: 0 },
-        { partyName: 'Independents',
-          members: [],
-          numOfReps: 0,
-          avgVoted: 0 }
-      ],
-      allMembers: [],
-      membersHighest: [],
-      membersLowest: []
+        partyLetters: [ 'R', 'D', 'I' ],
+        parties: [
+            { partyName: 'Republicans',
+            members: [],
+            numOfReps: 'NOT FOUND',
+            avgVoted: 'NOT FOUND' },
+            { partyName: 'Democrats',
+            members: [],
+            numOfReps: 'NOT FOUND',
+            avgVoted: 'NOT FOUND' },
+            { partyName: 'Independents',
+            members: [],
+            numOfReps: 'NOT FOUND',
+            avgVoted: 'NOT FOUND' }
+        ],
+        allMembers: [],
+        membersHighest: [],
+        membersLowest: []
     },
 
     created: function()
@@ -77,6 +77,7 @@ new Vue({
           {
               method: 'GET',
               headers: { 'X-API-Key' : 'iVsThyfuOgbdt7qIxYBZhbTsMbkta3psSKD9ugKX' }
+
           }).then( result => {
               this.allMembers = result.results[0].members;
               if( this.canStore )
@@ -91,12 +92,12 @@ new Vue({
       initialize: function ()
       {
           console.log( 'initialize-----------' );
-          this.getNumOfMembersInEachParty();
+          this.putMembersInParties();
           this.getAveragePartyVotes();
           this.getHiLowMemberArrays();
       },
 
-      getNumOfMembersInEachParty: function ( )
+      putMembersInParties: function ( )
       {     
           this.allMembers.forEach( member => {
           //   console.log( member );
@@ -109,7 +110,8 @@ new Vue({
           for( var i=0; i<3; i++ )
           {
               this.parties[i].numOfReps = this.parties[i].members.length;
-              let total = this.parties[i].members.reduce( (accum, value) => accum + value.votes_with_party_pct, 0 );
+              let total = this.parties[i].members.reduce( ( accum, value ) => 
+                accum + value.votes_with_party_pct, 0 );
               this.parties[i].avgVoted = ( total / this.parties[i].numOfReps ).toFixed( 2 );
           }
       },
@@ -120,6 +122,9 @@ new Vue({
           this.allMembers.sort( (a,b) => a[key] - b[key] );
           this.membersLowest = this.getHighestLowest( this.allMembers, key );
           this.membersHighest = this.getHighestLowest( this.allMembers.reverse(), key );
+
+        //   this.membersLowest = [];
+        //   this.membersHighest = [];
       },
 
       getHighestLowest: function ( members, key )
@@ -143,7 +148,8 @@ new Vue({
 
       hideSpinners: function()
         {
-            Array.from( document.getElementsByClassName( 'spinner' ) ).forEach( spinner => spinner.style.display = 'none' );
+            Array.from( document.getElementsByClassName( 'spinner' ) ).forEach( spinner => 
+                spinner.style.display = 'none' );
         }
 
     }

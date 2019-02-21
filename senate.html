@@ -123,6 +123,9 @@
                             <td> {{ member.seniority }} </td>
                             <td> {{ member.votes_with_party_pct + '%' }} </td></tr>
                     </table>
+                    <div class="text-center" v-if="membersToShow.length < 1">
+                        NO RESULTS FOUND
+                    </div>
                 </div>
             <div class="col-md-1"></div>
         </div>

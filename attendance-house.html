@@ -14,59 +14,9 @@
     <body id='missed_votes_pct'>
             <div id="vue-statistics">
             <vue-logo-bar></vue-logo-bar>
-            <!-- <div class="row">
-                <div class="col-xs-1"></div>
-                <div class="col-xs-3">
-                    <img src="logo-sm.jpg" alt="TGIF logo">
-                </div>
-                <div class="col-xs-6"></div>
-                <div class="col-xs-1">
-                    <a href="mailto: info@tgif.net">info@TGIF.net </a>
-                </div>
-                <div class="col-xs-1">
-                </div>
-            </div> -->
                 
         <!-- nav bar -->
         <vue-navbar></vue-navbar>
-        <!-- <div class="row">
-            <div class="col-md-1"></div>
-                <div class="col-md-10">
-                        <nav class="navbar navbar-default">
-                                <div class="container-fluid">
-                                    <div class="navbar-header">
-                                        <a class="navbar-brand" href="#">TGIF</a>
-                                    </div>
-                                    <ul class="nav navbar-nav">
-                                        <li><a href="index.html">Home</a></li>
-                                        <li >
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Congress 113</a>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="senate.html">Senate</a></li>
-                                                <li><a href="house.html">House</a></li>
-                                            </ul>
-                                        </li>
-                                        <li >
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Attendance</a>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="attendance-senate.html">Senate</a></li>
-                                                <li><a href="attendance-house.html">House</a></li>
-                                            </ul>
-                                        </li>
-                                        <li >
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Loyalty</a>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="loyalty-senate.html">Senate</a></li>
-                                                <li><a href="loyalty-house.html">House</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                    
-                                </div>
-                            </nav> 
-                    </div>
-                <div class="col-md-1"></div>
-            </div> -->
   
 
         <header>            
@@ -126,16 +76,21 @@
                                 <td> {{ member.missed_votes_pct }} </td></tr>
                         </tbody>
                     </table>
+                    <div class="text-center" v-if="membersHighest.length < 1"> 
+                        NO RESULTS FOUND
+                    </div>
                 </div>
                 <div class="col-md-5">
                     <h2>Most Engaged (Top 10% of Party)</h2>
                     <div class="spinner text-center">
                         <img src="spinner.gif" alt="loading...">
                     </div>
+                    
                     <table class='table table-striped' v-cloak>
                         <thead>
                             <tr><th>Name</th><th>Missed Votes</th><th>% Missed Votes</th></tr>
                         </thead>
+
                         <tbody>
                             <tr v-for="member in membersLowest" >
                                 <td> {{ member.first_name }} {{ member.middle_name }} {{ member.last_name }} </td>
@@ -143,6 +98,9 @@
                                 <td> {{ member.missed_votes_pct }} </td></tr>
                         </tbody>
                     </table>
+                    <div class="text-center" v-if="membersLowest.length < 1"> 
+                        NO RESULTS FOUND
+                    </div>
 
                             <!--
                             <table id="summaryTable" class="table table-striped">

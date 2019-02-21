@@ -116,7 +116,8 @@
                     </div>
                     <table class='table table-striped' v-cloak>
                         <thead>
-                            <tr><th>Name</th><th>Number Party Votes</th><th>% Party Votes</th></tr>                                </thead>
+                            <tr><th>Name</th><th>Number Party Votes</th><th>% Party Votes</th></tr>    
+                        </thead>
                         <tbody>
                             <tr v-for="member in membersLowest" >
                                 <td> {{ member.first_name }} {{ member.middle_name }} {{ member.last_name }} </td>
@@ -124,6 +125,9 @@
                                 <td> {{ member.votes_with_party_pct }} </td></tr>
                         </tbody>
                     </table>
+                    <div class="text-center" v-if="membersLowest.length < 1"> 
+                        NO RESULTS FOUND
+                    </div>
                 </div>
 
                    
@@ -134,7 +138,8 @@
                     </div>
                     <table class='table table-striped' v-cloak>
                         <thead>
-                            <tr><th>Name</th><th>Number Party Votes</th><th>% Party Votes</th></tr>                                </thead>
+                            <tr><th>Name</th><th>Number Party Votes</th><th>% Party Votes</th></tr>  
+                         </thead>
                         <tbody>
                             <tr v-for="member in membersHighest" >
                                 <td> {{ member.first_name }} {{ member.middle_name }} {{ member.last_name }} </td>
@@ -142,6 +147,9 @@
                                 <td> {{ member.votes_with_party_pct }} </td></tr>
                         </tbody>
                     </table>
+                    <div class="text-center" v-if="membersHighest.length < 1"> 
+                        NO RESULTS FOUND
+                    </div>
 
                             <!--
                             <table id="summaryTable" class="table table-striped">

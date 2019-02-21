@@ -29,7 +29,7 @@ new Vue({
 
       getHouseName: function()
       {
-        return ( document.getElementById( 'house' ) == null ) ? 'senate' : 'house'
+          return ( document.getElementById( 'house' ) == null ) ? 'senate' : 'house'
       },
 
       canStore: function ()
@@ -87,6 +87,7 @@ new Vue({
                       this.allStates.push( member.state );
               } );
       
+            // create state dropdown list
           this.allStates.forEach( state =>
               {
                  let option = document.createElement( 'option' );
@@ -109,15 +110,15 @@ new Vue({
 
       filterByState: function ()
       {
-          console.log( this.stateFilter.value );
+          console.log( 'stateFilter' + this.stateFilter.value );
         /* WHY????????
           console.log( `filter by state: ${this.stateFilter.value}` );
           this.stateSelected = ( this.stateFilter.value == 'ALL' ) ? this.allStates : this.stateFilter.value;
           */
           
-         console.log( `filter by state: ${document.getElementById( 'statefilter' ).value}` );
-         this.stateSelected = ( document.getElementById( 'statefilter' ).value == 'ALL' ) ? this.allStates : document.getElementById( 'statefilter' ).value;
-         
+            console.log( `filter by state: ${document.getElementById( 'statefilter' ).value}` );
+            this.stateSelected = ( document.getElementById( 'statefilter' ).value == 'ALL' ) ? this.allStates : document.getElementById( 'statefilter' ).value;
+            
             this.insertTableOfMembers( );
       },
 
@@ -125,17 +126,24 @@ new Vue({
       {
           console.log( '==== ' + this.partiesSelected + ' || ' + this.stateSelected );
 
-          this.membersToShow = this.allMembers.filter( member => this.partiesSelected.indexOf( member.party ) > -1 );
-          this.membersToShow = this.membersToShow.filter( member => this.stateSelected.indexOf( member.state ) > -1 );
+          this.membersToShow = this.allMembers.filter( member => 
+            this.partiesSelected.indexOf( member.party ) > -1 );
+
+          this.membersToShow = this.membersToShow.filter( member => 
+            this.stateSelected.indexOf( member.state ) > -1 );
+
+        //    this.membersToShow = [];
           console.log( 'number of members: ' + this.membersToShow.length );
 
         },
 
         hideSpinners: function()
         {
-        //    console.log( 'hide spinners' + document.getElementsByClassName( 'spinner' ) );
-            Array.from( document.getElementsByClassName( 'spinner' ) ).forEach( spinner => spinner.style.display = 'none' );
-        }
+            Array.from( document.getElementsByClassName( 'spinner' ) ).forEach( spinner => 
+                spinner.style.display = 'none' );
+        },
+
+
 
     }
   })
