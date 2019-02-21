@@ -43,10 +43,18 @@ new Vue({
 
       fetchJSON: function ( url, init ) 
       {
-        return fetch( url, init ).then( function( response ) 
+        // this is different - WHY??
+        // return fetch( url, init ).then( function( response ) 
+        // {
+        //   console.log( 'this' + this );
+        //   if( response.ok ){ return response.json(); }
+        //   throw new Error( response.statusText );
+        // }); 
+        return fetch( url, init ).then( response =>
         {
-          if( response.ok ){ return response.json(); }
-          throw new Error( response.statusText );
+            console.log( 'this' + this );
+            if( response.ok ){ return response.json(); }
+            throw new Error( response.statusText );
         });
       },
 

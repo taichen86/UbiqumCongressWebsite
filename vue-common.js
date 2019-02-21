@@ -1,8 +1,8 @@
 
 Vue.component( 'vue-footer', {
-    template: '<div class="row">' +
+    template: '<div class="row top-margin">' +
         '<div class="col-md-1"></div>' +
-        '<div class="col-md-10 well"><p>@2018 TGIF | All Rights Reserved</p></div>' +
+        '<div class="col-md-10 well text-center"><p>@2018 TGIF | All Rights Reserved</p></div>' +
         '<div class="col-md-1"></div></div>'
 } );
 
